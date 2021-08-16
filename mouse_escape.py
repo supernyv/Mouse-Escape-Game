@@ -177,7 +177,7 @@ def draw_mouse_and_cat():
     screen.blit(cat, cat_rectangle)
 
 def game_end():
-    wining_image = pygame.image.load("Victory")
+    wining_image = pygame.image.load("Victory.png")
     wining_image = pygame.transform.scale(wining_image, (SCREENWIDTH, SCREENHEIGHT))
     screen.blit(wining_image, (0, 0))
 
