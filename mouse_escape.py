@@ -17,7 +17,7 @@ die_sound = pygame.mixer.Sound("die.wav")
 win_sound = pygame.mixer.Sound("win.wav")
 eating_sound = pygame.mixer.Sound("eat.wav")
 
-number_of_tiles = 7
+number_of_tiles = 9
 side_spaces = 2
 tiles_width = int(SCREENWIDTH / (number_of_tiles + side_spaces))
 tiles_height = int(SCREENHEIGHT / (number_of_tiles + side_spaces))
@@ -212,6 +212,9 @@ def _move_following_cheese():
 
 def show_mouse_and_cat():
     """Draw mouse and cat to the screen"""
+    if mouse_died:
+        screen.blit(flash, (mouse_rectangle.x, mouse_rectangle.y))
+        
     mouse_rotated = pygame.transform.rotate(mouse, angle)
 
     screen.blit(mouse_rotated, mouse_rectangle)
@@ -260,7 +263,6 @@ while True:
             update_mouse()
             
         else:
-            screen.blit(flash, (mouse_rectangle.x, mouse_rectangle.y))
             create_mouse_and_cat()
             create_cheese()
             number_of_moves = 20
